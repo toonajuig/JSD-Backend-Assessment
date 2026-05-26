@@ -1,3 +1,5 @@
+https://www.loom.com/share/a9ba076494a04cc0bbf1d95a2b5eb834
+
 **1. What does each HTTP method in your API mean — GET, POST, PUT or PATCH, and DELETE? Why do we use different methods instead of just using POST for everything?**
 
 *Your answer:*
@@ -93,4 +95,4 @@ GET /products/999 ไม่มีใน array  404
 *Your answer:*
 การคิดการคิด logic ในส่วน Middleware ไม่ค่อยแน่ใจว่าต้องเขียนดักยังไงให้ครอบคลุมปลอดถัย ไม่เกิดเป็นbug ทีหลัง
 
-https://www.loom.com/share/a9ba076494a04cc0bbf1d95a2b5eb834
+
