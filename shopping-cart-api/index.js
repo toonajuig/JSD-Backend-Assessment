@@ -12,22 +12,41 @@ let products = [
 app.use(express.json());
 
 
-// Custon Middleware: request logger
+// Custom Middleware: request logger
 app.use((req, res, next) => {
     console.log(`${req.method} ${req.url}`);
     next();
 });
 
-// ทดสอบว่า sever ทำงาน
+// ทดสอบว่า server ทำงาน
 app.get('/', (req, res) => {
     res.json({ message: "Server is running" });
 })
 
 // ทดสอบดึงทั้งหมด
-app.get('/products', (req, res) => {
-  res.status(200).json(products)
-})
+// app.get('/products', (req, res) => {
+//   res.status(200).json(products)
+// })
 
+// เพิ่ม filter by name
+app.get('/products', (req, res) => {
+  const { name, sort } = req.query
+
+  let result = [...products]
+
+  if (name) {
+    result = result.filter(p =>
+      p.name.toLowerCase().includes(name.toLowerCase())
+    )
+  }
+
+  // เพิ่ม sort by price
+  if (sort === 'price') {
+    result.sort((a, b) => a.price - b.price)
+  }
+
+  res.status(200).json(result)
+})
 
 // ดึงชิ้นเดียว
 app.get('/products/:id', (req, res) => {

@@ -1,0 +1,43 @@
+### Get all products
+GET http://localhost:3000/products
+
+### Get all products filtered by name
+GET http://localhost:3000/products?name=key
+
+### Get all products sorted by price
+GET http://localhost:3000/products?sort=price
+
+### Get single product
+GET http://localhost:3000/products/1
+
+### Get product that doesn't exist (expect 404)
+GET http://localhost:3000/products/999
+
+### Add a new product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Monitor",
+  "price": 199.99,
+  "quantity": 1
+}
+
+### Add product missing required field (expect 400)
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+  "name": "Broken Item"
+}
+
+### Update a product
+PUT http://localhost:3000/products/1
+Content-Type: application/json
+
+{
+  "price": 59.99
+}
+
+### Delete a product
+DELETE http://localhost:3000/products/2
